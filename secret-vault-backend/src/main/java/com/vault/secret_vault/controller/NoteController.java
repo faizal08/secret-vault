@@ -4,7 +4,6 @@ import com.vault.secret_vault.entity.Note;
 import com.vault.secret_vault.entity.User;
 import com.vault.secret_vault.repository.NoteRepository;
 import com.vault.secret_vault.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +12,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/notes")
-@RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173") // Ensure React can access this
 public class NoteController {
 
     private final NoteRepository noteRepository;
     private final UserRepository userRepository;
 
-    // GET all notes for the LOGGED-IN user
+    // MANUAL CONSTRUCTOR for Dependency Injection
+    public NoteController(NoteRepository noteRepository, UserRepository userRepository) {
+        this.noteRepository = noteRepository;
+        this.userRepository = userRepository;
+    }
+
     @GetMapping
     public ResponseEntity<List<Note>> getMyNotes() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -27,16 +31,15 @@ public class NoteController {
         return ResponseEntity.ok(noteRepository.findAllByUser(user));
     }
 
-    // CREATE a new note for the LOGGED-IN user
     @PostMapping
-    public ResponseEntity<Note> createNote(@RequestBody String content) {
+    public ResponseEntity<Note> createNote(@RequestBody Note request) {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         User user = userRepository.findByUsername(username).orElseThrow();
 
-        Note note = Note.builder()
-                .content(content)
-                .user(user)
-                .build();
+        // Use standard 'new' and 'set' instead of .builder()
+        Note note = new Note();
+        note.setContent(request.getContent());
+        note.setUser(user);
 
         return ResponseEntity.ok(noteRepository.save(note));
     }
