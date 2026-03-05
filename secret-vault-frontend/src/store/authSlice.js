@@ -1,7 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const getStoredUser = () => {
+  const storedUser = localStorage.getItem('user');
+  // Check if it's null, undefined (as a string), or empty before parsing
+  if (!storedUser || storedUser === 'undefined') {
+    return null;
+  }
+  try {
+    return JSON.parse(storedUser);
+  } catch (error) {
+    console.error("Failed to parse user from localStorage", error);
+    return null;
+  }
+};
+
 const initialState = {
-  user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
+  user: getStoredUser(),
   token: localStorage.getItem('token') || null,
   isAuthenticated: !!localStorage.getItem('token'),
 };

@@ -58,6 +58,7 @@ public class AuthenticationService {
 
         AuthenticationResponse response = new AuthenticationResponse();
         response.setToken(jwtToken);
+        response.setUsername(user.getUsername()); // Send this back to React
         return response;
     }
 }
