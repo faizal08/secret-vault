@@ -12,10 +12,11 @@
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-
+*A Secure Full-Stack Sentinel for Encrypted Credential Management*
 </div>
+## 📖 Project Overview
 
-VAULT_CORE is a professional-grade security application built with a Java 17/Spring Boot 3 backend and a React 18 frontend. It leverages JWT for stateless, secure communication and Redux Toolkit for robust client-side state management. The project demonstrates advanced full-stack concepts, including solving Hibernate infinite recursion, implementing custom Security Filters, and building a responsive, high-performance "Agent Dashboard" with Tailwind CSS.
+*SECERET VAULT* is a professional-grade security application built with a *Java 17/Spring Boot 3* backend and a *React 18* frontend. It leverages *JWT* for stateless, secure communication and *Redux Toolkit* for robust client-side state management. The project demonstrates advanced full-stack concepts, including solving Hibernate infinite recursion, implementing custom Security Filters, and building a responsive, high-performance "Agent Dashboard" with *Tailwind CSS*.
 
 ---
 
