@@ -22,7 +22,7 @@
 ---
 
 ## 📸 Dashboard Preview
-> **Tip:** Upload your screenshot to a folder named `screenshots` and name it `dashboard.png`.
+
 ![Dashboard](screenshot.png)
 
 ---
