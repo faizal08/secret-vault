@@ -1,2 +1,13 @@
+# Keep your existing line endings
 /mvnw text eol=lf
 *.cmd text eol=crlf
+
+# --- Force GitHub to recognize this as a Java Project ---
+
+# Mark HTML, CSS, and JS as "generated" or "vendored" so they don't count in stats
+*.html linguist-vendored
+*.css linguist-vendored
+*.js linguist-vendored
+
+# Ensure Java is detected as the primary language
+*.java linguist-detectable=true
