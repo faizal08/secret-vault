@@ -25,6 +25,8 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private java.util.List<Secret> secrets;
     // --- CONSTRUCTORS ---
     public User() {}
 
@@ -43,6 +45,10 @@ public class User implements UserDetails {
 
     public Role getRole() { return role; }
     public void setRole(Role role) { this.role = role; }
+
+    // Getter and Setter
+    public java.util.List<Secret> getSecrets() { return secrets; }
+    public void setSecrets(java.util.List<Secret> secrets) { this.secrets = secrets; }
 
     // --- USERDETAILS OVERRIDES ---
     @Override

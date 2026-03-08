@@ -1,11 +1,9 @@
 package com.vault.secret_vault.config;
 
 import com.vault.secret_vault.security.JwtAuthenticationFilter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -39,10 +37,11 @@ public class SecurityConfig {
                 // 2. Disable CSRF (not needed for stateless JWT APIs)
                 .csrf(AbstractHttpConfigurer::disable)
 
-                // 3. Set up permissions
+                // 3. Set up permissions (Updated with your specific matchers)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll() // Public endpoints
-                        .anyRequest().authenticated()               // Protected endpoints
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/secrets/**").authenticated() // Require JWT for secrets
+                        .anyRequest().authenticated()
                 )
 
                 // 4. Force Stateless Sessions (No Cookies)
