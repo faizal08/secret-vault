@@ -1,4 +1,8 @@
+<div align="center">
+
 # 🔐 SECRET VAULT : Secure Secret Management
+
+
 
 ![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-green?style=for-the-badge&logo=springboot)
@@ -7,6 +11,9 @@
 ![Redux](https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+
+</div>
 
 VAULT_CORE is a professional-grade security application built with a Java 17/Spring Boot 3 backend and a React 18 frontend. It leverages JWT for stateless, secure communication and Redux Toolkit for robust client-side state management. The project demonstrates advanced full-stack concepts, including solving Hibernate infinite recursion, implementing custom Security Filters, and building a responsive, high-performance "Agent Dashboard" with Tailwind CSS.
 
