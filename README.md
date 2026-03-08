@@ -14,6 +14,7 @@
 
 *A Secure Full-Stack Sentinel for Encrypted Credential Management*
 </div>
+
 ## 📖 Project Overview
 
 *SECERET VAULT* is a professional-grade security application built with a *Java 17/Spring Boot 3* backend and a *React 18* frontend. It leverages *JWT* for stateless, secure communication and *Redux Toolkit* for robust client-side state management. The project demonstrates advanced full-stack concepts, including solving Hibernate infinite recursion, implementing custom Security Filters, and building a responsive, high-performance "Agent Dashboard" with *Tailwind CSS*.
