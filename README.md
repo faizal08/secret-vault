@@ -50,6 +50,28 @@
 
 ---
 
+---
+
+## 🔒 Security Protocols & Architecture
+
+This section outlines the multi-layer security approach implemented to protect sensitive agent data within **SECRET_VAULT**:
+
+### 1. Stateless Authentication (JWT)
+* **Secure Handshake**: The system utilizes **JSON Web Tokens (JWT)** to manage authentication, ensuring no sensitive session data is stored on the server side.
+* **Bearer Token Validation**: Every outgoing request from the **React** frontend is configured to include a valid JWT in the `Authorization` header.
+* **Spring Security Filter**: A custom filter in the **Spring Boot** backend intercepts every request to validate the token signature and verify that the agent is authorized to access their specific vault.
+
+### 2. Client-Side Protection (Redux Toolkit)
+* **Protected State**: Agent credentials and tokens are managed within a centralized **Redux** store, preventing sensitive data from being scattered across the component tree.
+* **Session Termination**: The "Terminate Session" feature triggers a global state reset, immediately purging all authentication data from the browser's memory.
+* **Route Guards**: Redux state serves as a gatekeeper for frontend routes, preventing unauthenticated users from accessing the **Dashboard** layout.
+
+### 3. Data Integrity & Persistence
+* **Bidirectional Relationship Mapping**: To prevent data leaks and API crashes, the project utilizes `@JsonBackReference` and `@JsonIgnore` annotations within the **Java** entities to safely handle complex **Hibernate** relationships.
+* **Relational Isolation**: Each secret is strictly mapped to a unique `user_id` in the **PostgreSQL** database. This ensures strict data isolation where users can only access records associated with their own account.
+
+---
+
 ## ⚙️ Quick Start
 
 ### 1. Prerequisites
